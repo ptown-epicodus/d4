@@ -29,6 +29,8 @@ This website was generated with [Angular CLI](https://github.com/angular/angular
 * `$ bower install bootstrap --save`
 * `$ ng g c example`
 * `$ ng g c scatter-plot`
+* `$ ng g c line-plot`
+* `$ ng g c bar-plot`
 
 
 ## Technologies Used
