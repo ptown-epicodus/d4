@@ -1,3 +1,39 @@
-<p>
-  line-plot works!
-</p>
+<button (click)="drawButtonClicked()" name="button">Draw</button>
+
+<div class="form col-sm-6">
+<h1>Line #1</h1>
+  <label>Point #1</label>
+  <input type="number" [(ngModel)]="data[0][0]" class="form-control">
+  <input type="number" [(ngModel)]="data[0][1]" class="form-control">
+  <label>Point #2</label>
+  <input type="number" [(ngModel)]="data[1][0]" class="form-control">
+  <input type="number" [(ngModel)]="data[1][1]" class="form-control">
+  <label>Point #3</label>
+  <input type="number" [(ngModel)]="data[2][0]" class="form-control">
+  <input type="number" [(ngModel)]="data[2][1]" class="form-control">
+  <label>Point #4</label>
+  <input type="number" [(ngModel)]="data[3][0]" class="form-control">
+  <input type="number" [(ngModel)]="data[3][1]" class="form-control">
+  <label>Point #5</label>
+  <input type="number" [(ngModel)]="data[4][0]" class="form-control">
+  <input type="number" [(ngModel)]="data[4][1]" class="form-control">
+</div>
+
+<div class="form col-sm-6">
+<h1>Line #2</h1>
+  <label>Point #1</label>
+  <input type="number" [(ngModel)]="data2[0][0]" class="form-control">
+  <input type="number" [(ngModel)]="data2[0][1]" class="form-control">
+  <label>Point #2</label>
+  <input type="number" [(ngModel)]="data2[1][0]" class="form-control">
+  <input type="number" [(ngModel)]="data2[1][1]" class="form-control">
+  <label>Point #3</label>
+  <input type="number" [(ngModel)]="data2[2][0]" class="form-control">
+  <input type="number" [(ngModel)]="data2[2][1]" class="form-control">
+  <label>Point #4</label>
+  <input type="number" [(ngModel)]="data2[3][0]" class="form-control">
+  <input type="number" [(ngModel)]="data2[3][1]" class="form-control">
+  <label>Point #5</label>
+  <input type="number" [(ngModel)]="data2[4][0]" class="form-control">
+  <input type="number" [(ngModel)]="data2[4][1]" class="form-control">
+</div>
