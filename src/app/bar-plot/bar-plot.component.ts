@@ -10,6 +10,7 @@ import { SEASONS } from '../bobross_data';
 export class BarPlotComponent implements OnInit {
   season: any;
   bushes = "bushes";
+  selection: any;
 
 
   private d3: D3;
@@ -23,6 +24,10 @@ constructor(element: ElementRef, d3Service: D3Service) {
 ngOnInit() {
   // bobros.season_1 is gonna be the selection of the user
   this.season = SEASONS.season_2;
+  this.selection = this.d3.select(".show-data-4")
+    .append("svg")
+    .attr("width", 500)
+    .attr("height", 500);
 }
 
 
@@ -40,7 +45,7 @@ showData() {
 
 
     let h: number = 370; // height
-    let w: number = 100; // Width
+    let w: number = 500; // Width
 
     let barPadding: number = 2;
 
@@ -52,7 +57,7 @@ showData() {
     let hasMountains: any []= [];
 
     let counterMountain:number = 0;
-       counterMountain += this.season[this.bushes] * 10;
+       counterMountain += this.season[this.bushes];
     hasMountains.push(counterMountain);
     totalArray.push(counterMountain);
 
@@ -66,29 +71,29 @@ showData() {
 //////////////////////TREES////////////////////////////
       let hasTrees: any[] = [];
       let counterTrees:number = 0;
-        counterTrees += this.season.snow * 10;
+        counterTrees += this.season.snow;
       hasTrees.push(counterTrees);
       totalArray.push(counterTrees);
 
 //////////////////////Sun////////////////////////////
       let hasSuns: any[] = [];
       let counterSuns:number = 0;
-        counterSuns += this.season.lake * 10;
+        counterSuns += this.season.lake ;
       hasTrees.push(counterSuns);
       totalArray.push(counterSuns);
 
 ///////////////////totalArray//////////////////////////
 
-        console.log(totalArray);
-        let svg4: any = d3.select(".show-data-4")
-          .append("svg")
-          .attr("width", w)
-          .attr("height", h);
+    console.log(totalArray);
 
-        svg4.selectAll("rect")
+    let join = this.selection.selectAll("rect")
           .data(totalArray)
-          .enter()
+
+          join.exit().remove();
+
+    join.enter()
           .append("rect")
+          .merge(join)
           .transition()
           .attr("x", function(d:any, i:any) {
             return i * (w / totalArray.length);
@@ -107,12 +112,14 @@ showData() {
 
 
           let padding = 30;
-          let xScale = d3.scaleLinear()
-                .domain([0, d3.max(totalArray, function(d) { return d; })])
-                .range([padding, w - padding * 2]);
           let yScale = d3.scaleLinear()
                 .domain([0, d3.max(totalArray, function(d) { return d; })])
                 .range([h - padding, padding]);
+
+
+          let xScale = d3.scaleLinear()
+                .domain([0, totalArray.length])
+                .range([padding, w - 10]);
 
           let xAxis = this.d3.axisBottom(xScale)
                      .ticks(5);
@@ -120,12 +127,12 @@ showData() {
           let yAxis = this.d3.axisLeft(yScale);
 
 
-          svg4.append("g")
+          this.selection.append("g")
           .attr("class", "axis")
           .attr("transform", "translate(0," + (h - padding) + ")")
           .call(xAxis);
 
-          svg4.append("g")
+          this.selection.append("g")
               .attr("class", "axis")
               .attr("transform", "translate(" + padding + ",0)")
               .call(yAxis);
