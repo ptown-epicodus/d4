@@ -1,0 +1,20 @@
+{
+  "name": "d3-demo",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Patrick McGreevy <patrick7490@icloud.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
