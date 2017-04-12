@@ -1,13 +1,50 @@
-# D3Demo
+# D4 (D3 Demo)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+#### Group project for Epicodus, 04.12.2017
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### By _**Zach Swanson**_, _**Patrick McGreevy**_, _**Drew Devlin**_, _**Jason Brown**_, _**Ash Laidlaw**_, & _**Félix Oporto López**_
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Description
+
+This website was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+
+## Setup
+1. Set project root as working directory in CLI after cloning repo.
+2. Run `$ npm install`.
+3. Run `$ bower install`.
+4. Setup Firebase (see below).
+5. Run `$ ng build`.
+6. Run `$ ng serve`.
+7. Visit **`localhost:4200`**  in web browser.
+
+
+## Project creation
+
+* `$ ng new d3-demo`
+* `$ cd d3-demo`
+* `$ npm install d3-ng2-service --save`
+* `$ bower init`
+* `$ bower install bootstrap --save`
+* `$ ng g c example`
+
+
+## Technologies Used
+
+* TypeScript
+* Angular
+* D3
+* Npm
+* Bower
+* JSON
+* Bootstrap
+* Firebase
+
+## Known Bugs
+
+_No known bugs._
+
 
 ## Build
 
@@ -22,10 +59,16 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
-## Deploying to GitHub Pages
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+## Support
 
-## Further help
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+_Please contact patrick7490@icloud.com with questions or concerns._
+
+
+### License
+
+*MIT License*
+
+Copyright (c) 2017 _**Zach Swanson**_, _**Patrick McGreevy**_, _**Drew Devlin**_, _**Jason Brown**_, _**Ash Laidlaw**_, & _**Félix Oporto López**_
