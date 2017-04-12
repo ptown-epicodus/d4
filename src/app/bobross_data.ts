@@ -1,5 +1,6 @@
 
-  export const SEASONS =  {
+  export const SEASONS = 
+  {
     "season_1" : {
       "bushes" : 5,
       "cabin" : 3,

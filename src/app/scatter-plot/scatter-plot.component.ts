@@ -20,13 +20,18 @@ export class ScatterPlotComponent implements OnInit {
                 [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
                 [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
               ];
+  parentArray = [];
 
   constructor(d3Service: D3Service) {
     this.d3 = d3Service.getD3();
   }
 
   ngOnInit() {
-    console.log(this.seasons.season_1.bushes);
+    // console.log(this.seasons.season_1.bushes);
+    // console.log(this.seasons.season_1.cabin);
+    // console.log(Object.keys(this.seasons).length);
+
+    // console.log(this.seasons["season_1"].bushes);
     let d3 = this.d3;
 
     this.svg = this.d3 //select div
@@ -34,8 +39,21 @@ export class ScatterPlotComponent implements OnInit {
       .append("svg")
       .attr("width", this.w)
       .attr("height", this.h);
-
+    this.getData();
     this.drawScatterPlot();
+  }
+
+  getData() {
+    for (var i = 1; i <= Object.keys(this.seasons).length; i++) {
+      var childArray = [];
+      var seasonString: string = "season_" + i;
+      let result1 = this.seasons[seasonString].bushes;
+      let result2 = this.seasons[seasonString].cabin;
+      childArray.push(result1);
+      childArray.push(result2);
+      this.parentArray.push(childArray);
+    }
+    console.log(this.parentArray);
   }
 
   drawScatterPlot() {
