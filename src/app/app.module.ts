@@ -7,11 +7,13 @@ import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { ExampleComponent } from './example/example.component';
+import { ScatterPlotComponent } from './scatter-plot/scatter-plot.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExampleComponent
+    ExampleComponent,
+    ScatterPlotComponent
   ],
   imports: [
     BrowserModule,

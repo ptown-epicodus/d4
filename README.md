@@ -28,6 +28,7 @@ This website was generated with [Angular CLI](https://github.com/angular/angular
 * `$ bower init`
 * `$ bower install bootstrap --save`
 * `$ ng g c example`
+* `$ ng g c scatter-plot`
 
 
 ## Technologies Used
@@ -39,7 +40,6 @@ This website was generated with [Angular CLI](https://github.com/angular/angular
 * Bower
 * JSON
 * Bootstrap
-* Firebase
 
 ## Known Bugs
 
