@@ -12,7 +12,7 @@ export class ScatterPlotComponent implements OnInit {
   @Input() SEASONS: any;
   seasons = SEASONS;
   private d3: D3;
-  private w = 500;
+  private w = 700;
   private h = 500;
   svg: any;
 
@@ -136,7 +136,7 @@ export class ScatterPlotComponent implements OnInit {
       })
       .attr("font-family", "sans-serif")
       .attr("font-size", "11px")
-      .attr("fill", "red");
+      .attr("fill", "#485c29");
 
     this.svg
       .selectAll(".axis")
