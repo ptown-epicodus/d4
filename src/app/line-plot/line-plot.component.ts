@@ -29,7 +29,7 @@ export class LinePlotComponent implements OnInit {
       this.featuresShowing[i] = (i < 5); // start with only first 5 features showing
     }
     // this creates an svg element in the template and saves the reference for future use by display functions
-    var w = 1000,
+    var w = 700,
         h = 500;
     var margin = {top: 20, right: 20, bottom: 30, left: 50};
     this.width = w - margin.left - margin.right;
