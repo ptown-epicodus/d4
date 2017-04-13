@@ -1,0 +1,43 @@
+.navbar {
+  font-size: 20px;
+  border-radius: 0;
+  border: 0;
+  padding: 30px;
+  font-family: 'Gloria Hallelujah', cursive;
+  margin-bottom: 0;
+  background-color: black;
+}
+
+li a {
+  transition: 0.5s;
+  color: #bbe3ea;
+}
+
+li a:visited {
+  transition: 0.5s;
+  color: #bbe3ea;
+}
+
+li a:hover {
+  transition: 0.5s;
+  color: #42c7cb;
+  transform: scale(1.2);
+}
+
+.navbar-brand {
+  font-size: 40px;
+  transition: 0.5s;
+  color: #bbe3ea;
+}
+
+.navbar-brand:visited {
+  font-size: 40px;
+  transition: 0.5s;
+  color: #bbe3ea;
+}
+
+.navbar-brand:hover {
+  transition: 0.5s;
+  color: #42c7cb;
+  transform: scale(1.1);
+}

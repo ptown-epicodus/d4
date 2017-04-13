@@ -1,0 +1,17 @@
+h6 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+a {
+  transition: 0.5s;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: 0.5s;
+  color: #485c29;
+  text-decoration: none;
+}

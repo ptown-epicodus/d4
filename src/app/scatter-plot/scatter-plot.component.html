@@ -1,6 +1,7 @@
-<div class="scatter-page container">
-  <h2>Bob Ross' Happy Little Scatterplot</h2>
-  <label>Select a subject:</label><br>
+
+<div class="container">
+
+<label>Select a subject:</label><br>
   <select (change)="changeFirstSubject($event.target.value)">
     <option value="bushes" selected="selected">bushes</option>
     <option value="cabin">cabin</option>
@@ -25,6 +26,7 @@
     <option value="waves">waves</option>
     <option value="winter">winter</option>
   </select><br><br>
+
 
   <label>Select a subject:</label><br>
   <select (change)="changeSecondSubject($event.target.value)">
@@ -51,7 +53,24 @@
     <option value="waves">waves</option>
     <option value="winter">winter</option>
   </select><br><br>
-  <div id="bRoss">
 
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="jumbotron">
+        <div class="center">
+          <h2>Bob Ross' Happy Little Scatterplot</h2>
+
+          <h4>About This Section</h4>
+        </div>
+        <h5>Here, you can see scatterplot visualizations of Bob Ross' seasons throughout the ages. It allows you to see the frequency of various elements common to his paintings in each season.</h5>
+      </div>
+    </div>
+    <div class="jumbotron center">
+      <h4>Scatterplot</h4>
+    </div>
+    <div class="col-sm-8" id="scatter-plot">
+      <div id="bRoss">
+      </div>
+    </div>
   </div>
-</div>
