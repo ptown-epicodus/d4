@@ -151,13 +151,6 @@ textJoin
       .attr("font-size", "11px")
       .attr("fill", "white");
 
-
-
-
-
-
-
-
       let xAxis = this.d3.axisBottom(xScale)
       .ticks(5);
 
