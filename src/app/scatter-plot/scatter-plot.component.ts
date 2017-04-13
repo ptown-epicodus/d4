@@ -67,7 +67,7 @@ export class ScatterPlotComponent implements OnInit {
 
     let maxX = xValues[0];
     let maxY = yValues[0];
-    let padding = 80;
+    let padding = 40;
 
     let xScale = this.d3
       .scaleLinear()
@@ -166,15 +166,15 @@ export class ScatterPlotComponent implements OnInit {
 
     this.svg //text label for the x axis
       .append("text")
-      .attr("x", 450 )
-      .attr("y", 875 )
+      .attr("x", 435 )
+      .attr("y", 895 )
       .style("text-anchor", "middle")
       .text(this.firstSubject);
 
     this.svg //text label for y axis
       .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 10)
+      .attr("y", 1)
       .attr("x",0 - (this.h / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")

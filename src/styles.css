@@ -136,3 +136,7 @@
 #legend-winter {
   stroke: green;
 }
+
+.scatter-content {
+  width: 100%;
+}
