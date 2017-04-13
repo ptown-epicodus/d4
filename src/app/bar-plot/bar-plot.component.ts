@@ -160,7 +160,7 @@ export class BarPlotComponent implements OnInit {
         return yScale(d)-padding ;
       })
       .attr("fill", function(d) {
-        return "rgb(0, 0, " + (d * 10) + ")";
+        return "rgb(73, 82, " + (d * 10) + ")";
       });
 
 
@@ -184,7 +184,7 @@ textJoin
       .attr( "transform" , function(d,i) {
         return "rotate(90 "+ (i * (barWidth) + padding *2) + "," + (h - yScale(d) + 15) + ")"
       })
-      .attr("fill", "red")
+      .attr("fill", "rgb(236, 225, 231)")
 
 
 
