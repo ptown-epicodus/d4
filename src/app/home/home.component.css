@@ -1,0 +1,32 @@
+.home-image {
+  width: 100vw;
+  height: 65vh;
+}
+
+#main-image {
+  margin-bottom: 30px;
+}
+
+.panel {
+  border-radius: 0;
+  border: 0;
+  width: 0 auto;
+  text-align: center;
+}
+
+.panel img {
+  height: 100px;
+  width: 100px;
+}
+
+a {
+  transition: 0.5s;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: 0.5s;
+  color: #485c29;
+  text-decoration: none;
+}
