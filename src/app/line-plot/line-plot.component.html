@@ -1,1 +1,17 @@
-<button (click)="drawButtonClicked()" name="button">Draw</button>
+<div class="container">
+  <button (click)="drawButtonClicked()" name="button">Draw</button>
+
+  <div>
+    <div *ngFor="let feature of pictureFeatures; let idx = index">
+      <input type="checkbox"
+        (change)="toggleFeature(idx)"
+        [checked]="featuresShowing[idx]"
+        name="{{feature}}" value="{{feature}}">
+      <svg height="20" width="40">
+        <path d="M0 15 L40 15 Z" class="legend-line" id="{{'legend-' + feature}}" />
+      </svg>
+      {{feature}}
+      <br>
+    </div>
+  </div>
+</div>
