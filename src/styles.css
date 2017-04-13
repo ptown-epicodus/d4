@@ -17,7 +17,7 @@
 
 .line-bushes,
 #legend-bushes {
-  stroke: green;
+  stroke: #d6c154;
 }
 
 .center {
@@ -30,113 +30,113 @@
 
 .line-cabin,
 #legend-cabin {
-  stroke: green;
+  stroke: #352120;
 }
 
 .line-cactus,
 #legend-cactus {
-  stroke: green;
+  stroke: #2d3830;
 }
 
 .line-cirrus,
 #legend-cirrus {
-  stroke: green;
+  stroke: #c0dfe7;
 }
+
 .line-circle_frame,
 #legend-circle_frame {
   stroke: green;
 }
 
-.line-cactus,
-#legend-cactus {
-  stroke: green;
-}
-
 .line-cliff,
 #legend-cliff {
-  stroke: green;
+  stroke: #433a3f;
 }
 
 .line-clouds,
 #legend-clouds {
-  stroke: green;
+  stroke: #d4e6e9;
 }
 
 .line-conifer,
 #legend-conifer {
-  stroke: green;
+  stroke: #daee8f;
 }
 
 .line-cumulus,
 #legend-cumulus {
-  stroke: green;
+  stroke: #ffffff;
 }
 
 .line-decidious,
 #legend-decidious {
-  stroke: green;
+  stroke: #ae4104;
 }
 
 .line-grass,
 #legend-grass {
-  stroke: green;
+  stroke: #8b8a52;
 }
 
 .line-lake,
 #legend-lake {
-  stroke: green;
+  stroke: #78afa5;
 }
 
 .line-mountain,
 #legend-mountain {
-  stroke: green;
+  stroke: #21848e;
 }
 
 .line-mountains,
 #legend-mountains {
-  stroke: green;
+  stroke: #a49288;
 }
 
 .line-river,
 #legend-river {
-  stroke: green;
+  stroke: #67a5b4;
 }
 
 .line-snow,
 #legend-snow {
-  stroke: green;
+  stroke: #e2dde4;
 }
 
 .line-snowy_mountain,
 #legend-snowy_mountain {
-  stroke: green;
+  stroke: #e4e5e9;
 }
 
 .line-tree,
 #legend-tree {
-  stroke: green;
+  stroke: #323d35;
 }
 
 .line-trees,
 #legend-trees {
-  stroke: green;
+  stroke: #4b4b29;
 }
 
 .line-waterfall,
 #legend-waterfall {
-  stroke: green;
+  stroke: #a0acc2;
 }
 
 .line-waves,
 #legend-waves {
-  stroke: green;
+  stroke: #68d5e1;
 }
 
 .line-winter,
 #legend-winter {
-  stroke: green;
+  stroke: #3f9;
 }
 
 .scatter-content {
   width: 100%;
+}
+
+.line-tooltip {
+  font-size: 10pt;
 }

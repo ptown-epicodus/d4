@@ -12,8 +12,10 @@ export class ScatterPlotComponent implements OnInit {
   @Input() SEASONS: any;
   seasons = SEASONS;
   private d3: D3;
+
   private w = 750;
-  private h = 750;
+  private h = 700;
+
   svg: any;
 
   parentArray = [];
@@ -144,8 +146,8 @@ export class ScatterPlotComponent implements OnInit {
         return yScale(d[1]);
       })
       .attr("font-family", "sans-serif")
-      .attr("font-size", "14px")
-      .attr("fill", "red");
+      .attr("font-size", "11px")
+      .attr("fill", "#485c29");
 
     this.svg //removes elements that do not have data
       .selectAll(".axis")
