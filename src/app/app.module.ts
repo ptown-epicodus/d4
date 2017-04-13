@@ -10,6 +10,8 @@ import { ExampleComponent } from './example/example.component';
 import { ScatterPlotComponent } from './scatter-plot/scatter-plot.component';
 import { BarPlotComponent } from './bar-plot/bar-plot.component';
 import { LinePlotComponent } from './line-plot/line-plot.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { LinePlotComponent } from './line-plot/line-plot.component';
     ExampleComponent,
     ScatterPlotComponent,
     BarPlotComponent,
-    LinePlotComponent
+    LinePlotComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+.navbar {
+  font-size: 20px;
+  border-radius: 0;
+  border: 0;
+  padding: 30px;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+li a {
+  transition: 0.5s;
+}
+
+li a:hover {
+  transition: 0.5s;
+  color: #7a3d62;
+}
+
+.navbar-brand {
+  font-size: 40px;
+  transition: 0.5s;
+}
+
+.navbar-brand:active {
+  color: green;
+}
+
+.navbar-brand:hover {
+  transition: 0.5s;
+  color: #7a3d62;
+}
