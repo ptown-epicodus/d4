@@ -136,3 +136,7 @@
 #legend-winter {
   stroke: green;
 }
+
+.line-tooltip {
+  font-size: 10pt;
+}
