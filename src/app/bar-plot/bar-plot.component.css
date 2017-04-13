@@ -1,0 +1,8 @@
+::-webkit-slider-thumb,
+	::-moz-range-thumb,
+	 ::-ms-thumb {
+	-webkit-appearance: none;
+	background-color: #666;
+	width: 10px;
+	height: 20px;
+}

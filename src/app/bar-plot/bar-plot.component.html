@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="jumbotron">
+        <h1>D3 Tester | Bob Ross</h1>
         <div class="center">
           <h4>About This Section</h4>
         </div>
@@ -11,7 +12,41 @@
     <div class="jumbotron center">
       <h4>Bar Graph</h4>
     </div>
-    <div class="col-sm-8" id="bar-graph">
+    <div class="col-sm-8 show-data-4" id="bar-graph">
       <!-- GRAPHS GO HERE -->
     </div>
+  </div>
+  <input type="range" min="1" max="30"  step="1" value="1" id="rangeInput" list="volsettings" (change)="showSeason($event.target.value)">
+  <datalist id="volsettings">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+    <option>16</option>
+    <option>17</option>
+    <option>18</option>
+    <option>19</option>
+    <option>20</option>
+    <option>21</option>
+    <option>22</option>
+    <option>23</option>
+    <option>24</option>
+    <option>25</option>
+    <option>26</option>
+    <option>27</option>
+    <option>28</option>
+    <option>29</option>
+    <option>30</option>
+  </datalist>
 </div>
