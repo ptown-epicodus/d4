@@ -12,7 +12,8 @@ export class ScatterPlotComponent implements OnInit {
   @Input() SEASONS: any;
   seasons = SEASONS;
   private d3: D3;
-  private w = 500;
+
+  private w = 700;
   private h = 500;
   svg: any;
 
@@ -46,7 +47,6 @@ export class ScatterPlotComponent implements OnInit {
       childArray.push(result2);
       this.parentArray.push(childArray);
     }
-    console.log(this.parentArray);
   }
 
   drawScatterPlot() {
@@ -68,7 +68,7 @@ export class ScatterPlotComponent implements OnInit {
 
     let maxX = xValues[0];
     let maxY = yValues[0];
-    let padding = 30;
+    let padding = 40;
 
     let xScale = this.d3
       .scaleLinear()
@@ -119,12 +119,22 @@ export class ScatterPlotComponent implements OnInit {
       .selectAll("text")
       .data(this.parentArray);
 
+    // let div = this.d3.select("#bRoss").append("div")
+    //   .attr("class", "tooltip")
+    //   .style("opacity", 0);
+
     text.exit().remove(); //removes elements that do not have data
 
     text
       .enter()
       .append("text")
       .merge(text)
+      // .on("mouseover", function(d, i) {
+      //   div.transition()
+      //   .duration(200)
+      //   .style("opacity", .9);
+      //   div.html("S" + i);
+      // })
       .text(function(d,i) {
         return ('S ' + i);
       })
@@ -136,11 +146,11 @@ export class ScatterPlotComponent implements OnInit {
       })
       .attr("font-family", "sans-serif")
       .attr("font-size", "11px")
-      .attr("fill", "red");
+      .attr("fill", "#485c29");
 
-    this.svg
+    this.svg //removes elements that do not have data
       .selectAll(".axis")
-      .remove()
+      .remove();
 
     this.svg //group by xAxis
       .append("g")
@@ -148,12 +158,31 @@ export class ScatterPlotComponent implements OnInit {
       .attr("transform", "translate(0," + (this.h - padding) + ")")
       .call(xAxis);
 
+
     this.svg //group by yAxis
       .append("g")
       .attr("class", "axis")
       .attr("transform", "translate(" + padding + ",0)")
       .call(yAxis);
+
+    this.svg //text label for the x axis
+      .append("text")
+      .attr("x", 435 )
+      .attr("y", 895 )
+      .style("text-anchor", "middle")
+      .text(this.firstSubject);
+
+    this.svg //text label for y axis
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 1)
+      .attr("x",0 - (this.h / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text(this.secondSubject);
   }
+
+
 
   changeFirstSubject(optionFromMenu) {
     this.firstSubject = optionFromMenu;
@@ -170,4 +199,8 @@ export class ScatterPlotComponent implements OnInit {
     this.getData();
     this.drawScatterPlot();
   }
+
+
+
+
 }

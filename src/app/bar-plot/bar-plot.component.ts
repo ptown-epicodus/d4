@@ -50,13 +50,8 @@ export class BarPlotComponent implements OnInit {
     if (this.parentNativeElement !== null) {
       d3ParentElement = this.d3.select(this.parentNativeElement);
 
-
-
-
-
       //////ARRAY ALL PAINT ATRIBUTES//////////////////////
       let totalArray = [];
-
 
 
       ///////////////////bushes/////////////////////////
@@ -121,9 +116,9 @@ export class BarPlotComponent implements OnInit {
       counterDecidious[0] += this.season.decidious;
       totalArray.push(counterDecidious);
 
+      ///////////////////totalArray//////////////////////////
 
       console.log(totalArray);
-
 
       let h: number = 500; // height
       let w: number = 1150; // Width
