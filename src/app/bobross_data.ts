@@ -1,4 +1,3 @@
-
   export const SEASONS =  {
     "season_1" : {
       "bushes" : 5,

@@ -53,25 +53,34 @@ export class BarPlotComponent implements OnInit {
       let totalArray: any [] = [];
 
 
-      ///////////////////MOUNTAINS/////////////////////////
+      ///////////////////bushes/////////////////////////
       let counterMountain:number = 0;
       counterMountain += this.season.bushes;
       totalArray.push(counterMountain);
 
-      ///////////////OCEANS//////////////////////////////////
+      ///////////////lake//////////////////////////////////
       let counterOcean:number = 0;
       counterOcean += this.season.lake;
       totalArray.push(counterOcean);
 
-      //////////////////////TREES////////////////////////////
+      //////////////////////snow////////////////////////////
       let counterTrees:number = 0;
       counterTrees += this.season.snow;
       totalArray.push(counterTrees);
 
-      //////////////////////Sun////////////////////////////
+      //////////////////////clouds////////////////////////////
       let counterSuns:number = 0;
-      counterSuns += this.season.lake ;
+      counterSuns += this.season.clouds ;
       totalArray.push(counterSuns);
+
+      //////////////////////cabin////////////////////////////
+      let counterRiver:number = 0;
+      counterSuns += this.season.river;
+      totalArray.push(counterRiver);
+      //////////////////////clouds////////////////////////////
+      let counterGrass:number = 0;
+      counterSuns += this.season.grass;
+      totalArray.push(counterGrass);
 
       ///////////////////totalArray//////////////////////////
 
@@ -133,7 +142,7 @@ textJoin
         return d;
       })
       .attr("x", function(d, i) {
-        return i * (barWidth) + padding + 20;
+        return i * (barWidth) + padding + 50;
       })
       .attr("y", function(d) {
       return h - yScale(d) + 15;
