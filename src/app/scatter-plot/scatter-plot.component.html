@@ -2,6 +2,58 @@
   scatter-plot works!
 </p>
 
+<select (change)="changeFirstSubject($event.target.value)">
+    <option value="bushes" selected="selected">bushes</option>
+    <option value="cabin">cabin</option>
+    <option value="cactus">cactus</option>
+    <option value="circle_frame">circle_frame</option>
+    <option value="cirrus">cirrus</option>
+    <option value="cliff">cliff</option>
+    <option value="clouds">clouds</option>
+    <option value="conifer">conifer</option>
+    <option value="cumulus">cumulus</option>
+    <option value="decidious">decidious</option>
+    <option value="grass">grass</option>
+    <option value="lake">lake</option>
+    <option value="mountain">mountain</option>
+    <option value="mountains">mountains</option>
+    <option value="river">river</option>
+    <option value="snow">snow</option>
+    <option value="snowy_mountain">snowy_mountain</option>
+    <option value="tree">tree</option>
+    <option value="trees">trees</option>
+    <option value="waterfall">waterfall</option>
+    <option value="waves">waves</option>
+    <option value="winter">winter</option>
+  </select><br><br>
+
+
+  <select (change)="changeSecondSubject($event.target.value)">
+      <option value="bushes">bushes</option>
+      <option value="cabin" selected="selected">cabin</option>
+      <option value="cactus">cactus</option>
+      <option value="circle_frame">circle_frame</option>
+      <option value="cirrus">cirrus</option>
+      <option value="cliff">cliff</option>
+      <option value="clouds">clouds</option>
+      <option value="conifer">conifer</option>
+      <option value="cumulus">cumulus</option>
+      <option value="decidious">decidious</option>
+      <option value="grass">grass</option>
+      <option value="lake">lake</option>
+      <option value="mountain">mountain</option>
+      <option value="mountains">mountains</option>
+      <option value="river">river</option>
+      <option value="snow">snow</option>
+      <option value="snowy_mountain">snowy_mountain</option>
+      <option value="tree">tree</option>
+      <option value="trees">trees</option>
+      <option value="waterfall">waterfall</option>
+      <option value="waves">waves</option>
+      <option value="winter">winter</option>
+    </select><br><br>
 <div id="bRoss">
 
 </div>
+<p>y (left): {{secondSubject}}</p>
+<p>x (bottom): {{firstSubject}}</p>
