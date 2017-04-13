@@ -1,8 +1,5 @@
-<p>
-  scatter-plot works!
-</p>
-
-<select (change)="changeFirstSubject($event.target.value)">
+<div class="container">
+  <select (change)="changeFirstSubject($event.target.value)">
     <option value="bushes" selected="selected">bushes</option>
     <option value="cabin">cabin</option>
     <option value="cactus">cactus</option>
@@ -27,33 +24,48 @@
     <option value="winter">winter</option>
   </select><br><br>
 
-
   <select (change)="changeSecondSubject($event.target.value)">
-      <option value="bushes">bushes</option>
-      <option value="cabin" selected="selected">cabin</option>
-      <option value="cactus">cactus</option>
-      <option value="circle_frame">circle_frame</option>
-      <option value="cirrus">cirrus</option>
-      <option value="cliff">cliff</option>
-      <option value="clouds">clouds</option>
-      <option value="conifer">conifer</option>
-      <option value="cumulus">cumulus</option>
-      <option value="decidious">decidious</option>
-      <option value="grass">grass</option>
-      <option value="lake">lake</option>
-      <option value="mountain">mountain</option>
-      <option value="mountains">mountains</option>
-      <option value="river">river</option>
-      <option value="snow">snow</option>
-      <option value="snowy_mountain">snowy_mountain</option>
-      <option value="tree">tree</option>
-      <option value="trees">trees</option>
-      <option value="waterfall">waterfall</option>
-      <option value="waves">waves</option>
-      <option value="winter">winter</option>
-    </select><br><br>
-<div id="bRoss">
-
+    <option value="bushes">bushes</option>
+    <option value="cabin" selected="selected">cabin</option>
+    <option value="cactus">cactus</option>
+    <option value="circle_frame">circle_frame</option>
+    <option value="cirrus">cirrus</option>
+    <option value="cliff">cliff</option>
+    <option value="clouds">clouds</option>
+    <option value="conifer">conifer</option>
+    <option value="cumulus">cumulus</option>
+    <option value="decidious">decidious</option>
+    <option value="grass">grass</option>
+    <option value="lake">lake</option>
+    <option value="mountain">mountain</option>
+    <option value="mountains">mountains</option>
+    <option value="river">river</option>
+    <option value="snow">snow</option>
+    <option value="snowy_mountain">snowy_mountain</option>
+    <option value="tree">tree</option>
+    <option value="trees">trees</option>
+    <option value="waterfall">waterfall</option>
+    <option value="waves">waves</option>
+    <option value="winter">winter</option>
+  </select><br><br>
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="jumbotron">
+        <div class="center">
+          <h4>About This Section</h4>
+        </div>
+        <h5>Here, you can see scatterplot visualizations of Bob Ross' seasons throughout the ages. It allows you to see the frequency of various elements common to his paintings in each season.</h5>
+      </div>
+    </div>
+    <div class="jumbotron center">
+      <h4>Scatterplot</h4>
+    </div>
+    <div class="col-sm-8" id="scatter-plot">
+      <div id="bRoss">
+      </div>
+    </div>
+  </div>
 </div>
 <p>y (left): {{secondSubject}}</p>
 <p>x (bottom): {{firstSubject}}</p>

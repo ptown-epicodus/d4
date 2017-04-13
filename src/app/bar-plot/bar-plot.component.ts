@@ -193,13 +193,6 @@ textJoin
       // })
       .attr("fill", "#ededed")
 
-
-
-
-
-
-
-
       let xAxis = this.d3.axisBottom(xScale)
       .ticks(5);
 
