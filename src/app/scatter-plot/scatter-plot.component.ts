@@ -12,8 +12,8 @@ export class ScatterPlotComponent implements OnInit {
   @Input() SEASONS: any;
   seasons = SEASONS;
   private d3: D3;
-  private w = 900;
-  private h = 900;
+  private w = 750;
+  private h = 750;
   svg: any;
 
   parentArray = [];
@@ -111,7 +111,7 @@ export class ScatterPlotComponent implements OnInit {
         return yScale(d[1]);
       })
       .attr("r", function(d) {
-        return rScale(d[1]);
+        return 5;
       });
 
     let text = this.svg //select and append text
