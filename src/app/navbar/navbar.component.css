@@ -21,6 +21,7 @@ li a:visited {
 li a:hover {
   transition: 0.5s;
   color: #f4ead9;
+  transform: scale(1.2);
 }
 
 .navbar-brand {
@@ -38,4 +39,5 @@ li a:hover {
 .navbar-brand:hover {
   transition: 0.5s;
   color: #f4ead9;
+  transform: scale(1.1);
 }
