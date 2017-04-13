@@ -75,17 +75,32 @@ export class LinePlotComponent implements OnInit {
                           .x(function(d) {return xScale(d[0]); })
                           .y(function(d) {return yScale(d[1]); });
 
+    let tooltip = d3.select("body").append("div")
+                                   .attr("class", "line-tooltip")
+                                   .style("position", "absolute")
+                                   .style("visibility", "hidden")
+                                   .style("z-index", "10")
+                                   .text("tooltip");
+
 
     join.exit().remove(); //removes extraneous elements that do not have data
 
     join.enter()
       .append('path') // this adds new elements for data that had no place to go
       .merge(join) // puts the update and enter sections of the join together so that all following methods will act on all elements.
+      .on("mouseover", function(d) { return tooltip.style("visibility", "visible")
+                                                   .text(d.feature);
+      })
+      .on("mousemove", function() { return tooltip.style("top",  (d3.event.pageY-10)+"px")
+                                                  .style("left", (d3.event.pageX+10)+"px");
+      })
+      .on("mouseout", function() { return tooltip.style("visibility", "hidden"); })
       .transition() // Sets the default transition as display changes, and then modifies attributes of all elements in the join.
       .attr('d', drawLine)
       .attr('class', function(d, i) {
         return 'line line-' + d.feature;
       });
+
 
     this.selection.selectAll(".axis")
                   .remove();

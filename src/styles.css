@@ -136,3 +136,7 @@
 .scatter-content {
   width: 100%;
 }
+
+.line-tooltip {
+  font-size: 10pt;
+}
