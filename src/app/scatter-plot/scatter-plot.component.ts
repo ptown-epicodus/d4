@@ -118,12 +118,22 @@ export class ScatterPlotComponent implements OnInit {
       .selectAll("text")
       .data(this.parentArray);
 
+    // let div = this.d3.select("#bRoss").append("div")
+    //   .attr("class", "tooltip")
+    //   .style("opacity", 0);
+
     text.exit().remove(); //removes elements that do not have data
 
     text
       .enter()
       .append("text")
       .merge(text)
+      // .on("mouseover", function(d, i) {
+      //   div.transition()
+      //   .duration(200)
+      //   .style("opacity", .9);
+      //   div.html("S" + i);
+      // })
       .text(function(d,i) {
         return ('S ' + i);
       })
