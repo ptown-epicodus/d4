@@ -9,7 +9,7 @@ import { LinePlotComponent } from './line-plot/line-plot.component';
 const appRoutes: Routes = [
   {
     path: '',
-    component: ExampleComponent
+    component: ScatterPlotComponent
   },
   {
     path: 'scatter',

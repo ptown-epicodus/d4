@@ -6,7 +6,7 @@
     "Patrick McGreevy <patrick7490@icloud.com>"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/ptown-epicodus/d4",
   "ignore": [
     "**/.*",
     "node_modules",
