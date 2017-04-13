@@ -30,7 +30,7 @@ export class BarPlotComponent implements OnInit {
   ngOnInit() {
     this.selection = this.d3.select(".show-data-4")
     .append("svg")
-    .attr("width", 500)
+    .attr("width", 800)
     .attr("height", 500);
   }
 
@@ -73,14 +73,46 @@ export class BarPlotComponent implements OnInit {
       counterSuns += this.season.clouds ;
       totalArray.push(counterSuns);
 
-      //////////////////////cabin////////////////////////////
+      //////////////////////river////////////////////////////
       let counterRiver:number = 0;
-      counterSuns += this.season.river;
+      counterRiver += this.season.river;
       totalArray.push(counterRiver);
-      //////////////////////clouds////////////////////////////
+
+      //////////////////////grass////////////////////////////
       let counterGrass:number = 0;
-      counterSuns += this.season.grass;
+      counterGrass += this.season.grass;
       totalArray.push(counterGrass);
+
+      //////////////////////winter////////////////////////////
+      let counterWinter:number = 0;
+      counterWinter += this.season.winter;
+      totalArray.push(counterWinter);
+
+      //////////////////////waves////////////////////////////
+      let counterWaves:number = 0;
+      counterWaves += this.season.waves;
+      totalArray.push(counterWaves);
+
+      //////////////////////cactus////////////////////////////
+      let counterCactus:number = 0;
+      counterCactus += this.season.cactus;
+      totalArray.push(counterCactus);
+
+      //////////////////////conifer////////////////////////////
+      let counterConifer:number = 0;
+      counterConifer += this.season.conifer;
+      totalArray.push(counterConifer);
+
+      //////////////////////cumulus////////////////////////////
+      let counterCumulus:number = 0;
+      counterCumulus += this.season.cumulus;
+      totalArray.push(counterCumulus);
+
+      //////////////////////decidious////////////////////////////
+      let counterDecidious:number = 0;
+      counterDecidious += this.season.decidious;
+      totalArray.push(counterDecidious);
+
 
       ///////////////////totalArray//////////////////////////
 
@@ -88,7 +120,7 @@ export class BarPlotComponent implements OnInit {
 
 
       let h: number = 500; // height
-      let w: number = 500; // Width
+      let w: number = 800; // Width
 
       let barPadding: number = 1;
       let padding = 25;
@@ -142,14 +174,17 @@ textJoin
         return d;
       })
       .attr("x", function(d, i) {
-        return i * (barWidth) + padding + 50;
+        return i * (barWidth) + padding *2;
       })
       .attr("y", function(d) {
       return h - yScale(d) + 15;
       })
       .attr("font-family", "sans-serif")
       .attr("font-size", "11px")
-      .attr("fill", "white");
+      .attr( "transform" , function(d,i) {
+        return "rotate(90 "+ (i * (barWidth) + padding *2) + "," + (h - yScale(d) + 15) + ")"
+      })
+      .attr("fill", "red")
 
 
 
