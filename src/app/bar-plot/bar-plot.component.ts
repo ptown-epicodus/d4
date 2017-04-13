@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { D3Service, D3, Selection, ScaleLinear, Axis} from 'd3-ng2-service';
 import { SEASONS } from '../bobross_data';
@@ -14,128 +15,156 @@ export class BarPlotComponent implements OnInit {
 
 
   private d3: D3;
-private parentNativeElement: any;
+  private parentNativeElement: any;
 
-constructor(element: ElementRef, d3Service: D3Service) {
-  this.d3 = d3Service.getD3();
-  this.parentNativeElement = element.nativeElement;
-}
+  constructor(element: ElementRef, d3Service: D3Service) {
+    this.d3 = d3Service.getD3();
+    this.parentNativeElement = element.nativeElement;
+  }
 
-ngOnInit() {
-  // bobros.season_1 is gonna be the selection of the user
-  this.season = SEASONS.season_2;
-  this.selection = this.d3.select(".show-data-4")
+  showSeason(season){
+    this.season = SEASONS["season_" + season];
+    return this.showData();
+  }
+
+  ngOnInit() {
+    this.selection = this.d3.select(".show-data-4")
     .append("svg")
     .attr("width", 500)
     .attr("height", 500);
-}
+  }
 
 
-/////////////  D3   ////////////////////////
-showData() {
-  console.log(typeof(SEASONS.season_1.bushes));
+  /////////////  D3   ////////////////////////
+  showData() {
 
-  let d3 = this.d3;
-  let parentNativeElement: any = this.parentNativeElement;
-  let d3ParentElement: Selection<any, any, any, any>;
+    let d3 = this.d3;
+    let parentNativeElement: any = this.parentNativeElement;
+    let d3ParentElement: Selection<any, any, any, any>;
 
-  if (this.parentNativeElement !== null) {
-    d3ParentElement = this.d3.select(this.parentNativeElement);
-
+    if (this.parentNativeElement !== null) {
+      d3ParentElement = this.d3.select(this.parentNativeElement);
 
 
-    let h: number = 370; // height
-    let w: number = 500; // Width
-
-    let barPadding: number = 2;
-
-//////ARRAY ALL PAINT ATRIBUTES//////////////////////
-    let totalArray: any [] = [];
 
 
-///////////////////MOUNTAINS/////////////////////////
-    let hasMountains: any []= [];
 
-    let counterMountain:number = 0;
-       counterMountain += this.season[this.bushes];
-    hasMountains.push(counterMountain);
-    totalArray.push(counterMountain);
+      //////ARRAY ALL PAINT ATRIBUTES//////////////////////
+      let totalArray: any [] = [];
 
-///////////////OCEANS//////////////////////////////////
-      let hasOcean: any[] = [];
+
+      ///////////////////MOUNTAINS/////////////////////////
+      let counterMountain:number = 0;
+      counterMountain += this.season.bushes;
+      totalArray.push(counterMountain);
+
+      ///////////////OCEANS//////////////////////////////////
       let counterOcean:number = 0;
-        counterOcean += this.season.lake;
-      hasOcean.push(counterOcean);
+      counterOcean += this.season.lake;
       totalArray.push(counterOcean);
 
-//////////////////////TREES////////////////////////////
-      let hasTrees: any[] = [];
+      //////////////////////TREES////////////////////////////
       let counterTrees:number = 0;
-        counterTrees += this.season.snow;
-      hasTrees.push(counterTrees);
+      counterTrees += this.season.snow;
       totalArray.push(counterTrees);
 
-//////////////////////Sun////////////////////////////
-      let hasSuns: any[] = [];
+      //////////////////////Sun////////////////////////////
       let counterSuns:number = 0;
-        counterSuns += this.season.lake ;
-      hasTrees.push(counterSuns);
+      counterSuns += this.season.lake ;
       totalArray.push(counterSuns);
 
-///////////////////totalArray//////////////////////////
+      ///////////////////totalArray//////////////////////////
 
-    console.log(totalArray);
-
-    let join = this.selection.selectAll("rect")
-          .data(totalArray)
-
-          join.exit().remove();
-
-    join.enter()
-          .append("rect")
-          .merge(join)
-          .transition()
-          .attr("x", function(d:any, i:any) {
-            return i * (w / totalArray.length);
-          })
-          .attr("y", function(d:any) {
-            return h - (d);
-          })
-          .attr("width", w / totalArray.length - barPadding)
-          .attr("height", function(d:any) {
-            return d;
-          })
-          .attr("fill", function(d:any) {
-            return "green";
-          });
+      console.log(totalArray);
 
 
+      let h: number = 500; // height
+      let w: number = 500; // Width
 
-          let padding = 30;
-          let yScale = d3.scaleLinear()
-                .domain([0, d3.max(totalArray, function(d) { return d; })])
-                .range([h - padding, padding]);
+      let barPadding: number = 1;
+      let padding = 25;
 
+      let yScale = d3.scaleLinear()
+      .domain([0, d3.max(totalArray, function(d) { return d; })])
+      .range([padding,h- padding]);
 
-          let xScale = d3.scaleLinear()
-                .domain([0, totalArray.length])
-                .range([padding, w - 10]);
-
-          let xAxis = this.d3.axisBottom(xScale)
-                     .ticks(5);
-
-          let yAxis = this.d3.axisLeft(yScale);
+      let yScaleInvert = d3.scaleLinear()
+      .domain([0, d3.max(totalArray, function(d) { return d; })])
+      .range([h-padding, padding]);
 
 
-          this.selection.append("g")
-          .attr("class", "axis")
-          .attr("transform", "translate(0," + (h - padding) + ")")
-          .call(xAxis);
+      let xScale = d3.scaleLinear()
+      .domain([0, totalArray.length])
+      .range([padding, w - padding ]);
 
-          this.selection.append("g")
-              .attr("class", "axis")
-              .attr("transform", "translate(" + padding + ",0)")
-              .call(yAxis);
-            }
-          }
-        }
+      let barWidth = (w- 2*padding) / totalArray.length;
+
+      let join = this.selection.selectAll("rect")
+      .data(totalArray)
+
+      join.exit().remove();
+
+      join.enter()
+      .append("rect")
+      .merge(join)
+      .transition()
+      .attr("x", function(d:any, i:any) {
+        return i * (barWidth) + padding +2;
+      })
+      .attr("y", function(d:any) {
+        return  yScaleInvert(d);
+      })
+      .attr("width", barWidth-2)
+      .attr("height", function(d:any) {
+        return yScale(d)-padding ;
+      })
+      .attr("fill", function(d) {
+        return "rgb(0, 0, " + (d * 10) + ")";
+      });
+
+
+let textJoin = this.selection.selectAll("text")
+                              .data(totalArray);
+textJoin
+      .enter()
+      .append("text")
+      .merge(textJoin)
+      .text(function(d) {
+        return d;
+      })
+      .attr("x", function(d, i) {
+        return i * (barWidth) + padding + 20;
+      })
+      .attr("y", function(d) {
+      return h - yScale(d) + 15;
+      })
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "11px")
+      .attr("fill", "white");
+
+
+
+
+
+
+
+
+      let xAxis = this.d3.axisBottom(xScale)
+      .ticks(5);
+
+      let yAxis = this.d3.axisLeft(yScaleInvert);
+
+      this.selection.selectAll('.axis').remove();
+
+      this.selection.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + (h - padding) + ")")
+      .call(xAxis);
+
+      this.selection.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(" + padding + ",0)")
+      .call(yAxis);
+    }
+  }
+}
