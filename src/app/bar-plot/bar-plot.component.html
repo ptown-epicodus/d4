@@ -1,12 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-12">
+      <div class="jumbotron">
+        <h1>Happy Little Bar Graph</h1><br>
+        <p>This chart shows the frequency of all elements in a given season.  The vertical axis shows how many times a given element was included in paintings in a given season.  As you move the slider, you can see how Mr. Ross's interests changed over time.  When all the bars are tall, it indicates that Mr. Ross included a greater number of elements in that seasons's work.  When the bars are low, it suggests that given season inculded a lower diversity of elements in each painting.</p>
+      </div>
     </div>
-    <div class="col-sm-8 controls">
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
       <div class="center">
+        <h3>Season: {{userSelection}}</h3>
         <h4>Graph Controls | Slide to move | Each bar represents one season</h4><br>
       </div>
       <input type="range" min="1" max="30"  step="1" value="1" id="rangeInput" list="volsettings" (change)="showSeason($event.target.value)">
+      <output for="number_input"></output>
       <datalist id="volsettings">
         <option>1</option>
         <option>2</option>
@@ -40,22 +48,8 @@
         <option>30</option>
       </datalist>
     </div>
-    <div class="col-sm-2">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="jumbotron">
-        <div class="center">
-          <h4>About This Section</h4>
-        </div>
-        <h5>Here, you can see bar graph visualizations of Bob Ross' seasons throughout the ages. It allows you to see the frequency of various elements common to his paintings in each season.</h5>
-      </div>
-    </div>
-    <div class="jumbotron center">
-      <h4>Bar Graph</h4>
-    </div>
-    <div class="col-sm-8 show-data-4" id="bar-graph">
+    <div class="col-sm-8 show-data-4" id="barchart">
       <!-- GRAPHS GO HERE -->
     </div>
   </div>
+</div>

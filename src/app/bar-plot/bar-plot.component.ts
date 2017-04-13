@@ -10,8 +10,8 @@ import { SEASONS } from '../bobross_data';
 })
 export class BarPlotComponent implements OnInit {
   season: any;
-  bushes = "bushes";
   selection: any;
+  userSelection;
 
 
   private d3: D3;
@@ -22,16 +22,21 @@ export class BarPlotComponent implements OnInit {
     this.parentNativeElement = element.nativeElement;
   }
 
-  showSeason(season){
-    this.season = SEASONS["season_" + season];
+  showSeason(seasonNumber){
+    this.userSelection = seasonNumber;
+    this.season = SEASONS["season_" + seasonNumber];
     return this.showData();
   }
 
   ngOnInit() {
     this.selection = this.d3.select(".show-data-4")
     .append("svg")
-    .attr("width", 800)
+    .attr("width", 1150)
     .attr("height", 500);
+    this.userSelection = 1;
+    this.season = SEASONS.season_1;
+    console.log(this.season);
+    return this.showData();
   }
 
 
@@ -46,66 +51,69 @@ export class BarPlotComponent implements OnInit {
       d3ParentElement = this.d3.select(this.parentNativeElement);
 
       //////ARRAY ALL PAINT ATRIBUTES//////////////////////
-      let totalArray: any [] = [];
+      let totalArray = [];
+
 
       ///////////////////bushes/////////////////////////
-      let counterMountain:number = 0;
-      counterMountain += this.season.bushes;
-      totalArray.push(counterMountain);
+      let counterBushes = [0, 'bushes'];
+      counterBushes[0] += this.season.bushes;
+      totalArray.push(counterBushes);
+
 
       ///////////////lake//////////////////////////////////
-      let counterOcean:number = 0;
-      counterOcean += this.season.lake;
-      totalArray.push(counterOcean);
+      let counterLake = [0, 'lake'];
+      counterLake[0] += this.season.lake;
+      totalArray.push(counterLake);
 
       //////////////////////snow////////////////////////////
-      let counterTrees:number = 0;
-      counterTrees += this.season.snow;
+
+      let counterTrees= [0, 'snow'];
+      counterTrees[0] += this.season.snow;
       totalArray.push(counterTrees);
 
       //////////////////////clouds////////////////////////////
-      let counterSuns:number = 0;
-      counterSuns += this.season.clouds ;
+      let counterSuns= [0, 'clouds'];
+      counterSuns[0] += this.season.clouds ;
       totalArray.push(counterSuns);
 
       //////////////////////river////////////////////////////
-      let counterRiver:number = 0;
-      counterRiver += this.season.river;
+      let counterRiver= [0, 'river'];
+      counterRiver[0] += this.season.river;
       totalArray.push(counterRiver);
 
       //////////////////////grass////////////////////////////
-      let counterGrass:number = 0;
-      counterGrass += this.season.grass;
+      let counterGrass= [0, 'grass'];
+      counterGrass[0] += this.season.grass;
       totalArray.push(counterGrass);
 
       //////////////////////winter////////////////////////////
-      let counterWinter:number = 0;
-      counterWinter += this.season.winter;
+      let counterWinter= [0, 'winter'];
+      counterWinter[0] += this.season.winter;
       totalArray.push(counterWinter);
 
       //////////////////////waves////////////////////////////
-      let counterWaves:number = 0;
-      counterWaves += this.season.waves;
+      let counterWaves= [0, 'waves'];
+      counterWaves[0] += this.season.waves;
       totalArray.push(counterWaves);
 
       //////////////////////cactus////////////////////////////
-      let counterCactus:number = 0;
-      counterCactus += this.season.cactus;
+      let counterCactus= [0, 'cactus'];
+      counterCactus[0] += this.season.cactus;
       totalArray.push(counterCactus);
 
       //////////////////////conifer////////////////////////////
-      let counterConifer:number = 0;
-      counterConifer += this.season.conifer;
+      let counterConifer= [0, 'conifer'];
+      counterConifer[0] += this.season.conifer;
       totalArray.push(counterConifer);
 
       //////////////////////cumulus////////////////////////////
-      let counterCumulus:number = 0;
-      counterCumulus += this.season.cumulus;
+      let counterCumulus= [0, 'cumulus'];
+      counterCumulus[0] += this.season.cumulus;
       totalArray.push(counterCumulus);
 
       //////////////////////decidious////////////////////////////
-      let counterDecidious:number = 0;
-      counterDecidious += this.season.decidious;
+      let counterDecidious= [0, 'decidious'];
+      counterDecidious[0] += this.season.decidious;
       totalArray.push(counterDecidious);
 
       ///////////////////totalArray//////////////////////////
@@ -113,17 +121,17 @@ export class BarPlotComponent implements OnInit {
       console.log(totalArray);
 
       let h: number = 500; // height
-      let w: number = 700; // Width
+      let w: number = 1150; // Width
 
       let barPadding: number = 1;
       let padding = 25;
 
       let yScale = d3.scaleLinear()
-      .domain([0, d3.max(totalArray, function(d) { return d; })])
+      .domain([0, d3.max(totalArray, function(d) { return d[0]; })])
       .range([padding,h- padding]);
 
       let yScaleInvert = d3.scaleLinear()
-      .domain([0, d3.max(totalArray, function(d) { return d; })])
+      .domain([0, d3.max(totalArray, function(d) { return d[0]; })])
       .range([h-padding, padding]);
 
 
@@ -146,14 +154,14 @@ export class BarPlotComponent implements OnInit {
         return i * (barWidth) + padding +2;
       })
       .attr("y", function(d:any) {
-        return  yScaleInvert(d);
+        return  yScaleInvert(d[0]);
       })
       .attr("width", barWidth-2)
       .attr("height", function(d:any) {
-        return yScale(d)-padding ;
+        return yScale(d[0])-padding ;
       })
       .attr("fill", function(d) {
-        return "rgb(73, 82, " + (d * 10) + ")";
+        return "rgb(73, 82, " + (d[0] * 10) + ")";
       });
 
 
@@ -164,20 +172,21 @@ textJoin
       .append("text")
       .merge(textJoin)
       .text(function(d) {
-        return d;
+
+        return d[1];
       })
       .attr("x", function(d, i) {
         return i * (barWidth) + padding *2;
       })
       .attr("y", function(d) {
-      return h - yScale(d) + 15;
+      return h - yScale(d[0]) + 15;
       })
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "11px")
-      .attr( "transform" , function(d,i) {
-        return "rotate(90 "+ (i * (barWidth) + padding *2) + "," + (h - yScale(d) + 15) + ")"
-      })
-      .attr("fill", "rgb(236, 225, 231)")
+      .attr("font-family", "Gloria Hallelujah")
+      .attr("font-size", "14px")
+      // .attr( "transform" , function(d,i) {
+      //   return "rotate(90 "+ (i * (barWidth) + padding *2) + "," + (h - yScale(d) + 15) + ")"
+      // })
+      .attr("fill", "#ededed")
 
       let xAxis = this.d3.axisBottom(xScale)
       .ticks(5);
