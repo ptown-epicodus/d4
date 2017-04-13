@@ -1,5 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 .line {
   fill: none;
-  stroke-width: 2px;
+  stroke-width: 1px;
+  stroke: steelblue;
+}
+
+.legend-line {
+  stroke-width: 3px;
+  stroke: black;
+}
+
+.line-bushes,
+#legend-bushes {
+  stroke: green;
 }
