@@ -168,8 +168,8 @@ export class ScatterPlotComponent implements OnInit {
 
     this.svg //text label for the x axis
       .append("text")
-      .attr("x", 435 )
-      .attr("y", 895 )
+      .attr("x", 375 )
+      .attr("y", 695 )
       .style("text-anchor", "middle")
       .text(this.firstSubject);
 
