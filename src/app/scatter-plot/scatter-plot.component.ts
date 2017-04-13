@@ -16,22 +16,15 @@ export class ScatterPlotComponent implements OnInit {
   private h = 500;
   svg: any;
 
-  private dataset = [
-                [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
-                [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
-              ];
   parentArray = [];
+  firstSubject = "bushes";
+  secondSubject = "cabin";
 
   constructor(d3Service: D3Service) {
     this.d3 = d3Service.getD3();
   }
 
   ngOnInit() {
-    // console.log(this.seasons.season_1.bushes);
-    // console.log(this.seasons.season_1.cabin);
-    // console.log(Object.keys(this.seasons).length);
-
-    // console.log(this.seasons["season_1"].bushes);
     let d3 = this.d3;
 
     this.svg = this.d3 //select div
@@ -47,8 +40,8 @@ export class ScatterPlotComponent implements OnInit {
     for (var i = 1; i <= Object.keys(this.seasons).length; i++) {
       var childArray = [];
       var seasonString: string = "season_" + i;
-      let result1 = this.seasons[seasonString].bushes;
-      let result2 = this.seasons[seasonString].cabin;
+      let result1 = this.seasons[seasonString][this.firstSubject];
+      let result2 = this.seasons[seasonString][this.secondSubject];
       childArray.push(result1);
       childArray.push(result2);
       this.parentArray.push(childArray);
@@ -57,7 +50,7 @@ export class ScatterPlotComponent implements OnInit {
   }
 
   drawScatterPlot() {
-    let xValues = this.dataset
+    let xValues = this.parentArray
       .map(function(el) {
         return el[0];
       })
@@ -65,7 +58,7 @@ export class ScatterPlotComponent implements OnInit {
         return b-a;
       });
 
-    let yValues = this.dataset
+    let yValues = this.parentArray
       .map(function(el) {
         return el[1];
       })
@@ -103,9 +96,10 @@ export class ScatterPlotComponent implements OnInit {
 
     let circles = this.svg //select circles
       .selectAll("circle")
-      .data(this.dataset);
+      .data(this.parentArray);
 
     circles.exit().remove(); //removes elements that do not have data
+
 
     circles //draw circles
       .enter()
@@ -123,17 +117,17 @@ export class ScatterPlotComponent implements OnInit {
 
     let text = this.svg //select and append text
       .selectAll("text")
-      .data(this.dataset);
+      .data(this.parentArray);
 
     text.exit().remove(); //removes elements that do not have data
 
     text
       .enter()
       .append("text")
-      .text(function(d) {
-        return d[0] + "," + d[1];
+      .merge(text)
+      .text(function(d,i) {
+        return ('S ' + i);
       })
-      .merge(text) //?
       .attr("x", function(d) {
         return xScale(d[0]);
       })
@@ -143,6 +137,10 @@ export class ScatterPlotComponent implements OnInit {
       .attr("font-family", "sans-serif")
       .attr("font-size", "11px")
       .attr("fill", "red");
+
+    this.svg
+      .selectAll(".axis")
+      .remove()
 
     this.svg //group by xAxis
       .append("g")
@@ -155,5 +153,21 @@ export class ScatterPlotComponent implements OnInit {
       .attr("class", "axis")
       .attr("transform", "translate(" + padding + ",0)")
       .call(yAxis);
+  }
+
+  changeFirstSubject(optionFromMenu) {
+    this.firstSubject = optionFromMenu;
+    console.log(this.firstSubject);
+    this.parentArray = [];
+    this.getData();
+    this.drawScatterPlot();
+  }
+
+  changeSecondSubject(optionFromMenu) {
+    this.secondSubject = optionFromMenu;
+    console.log(this.secondSubject);
+    this.parentArray = [];
+    this.getData();
+    this.drawScatterPlot();
   }
 }
