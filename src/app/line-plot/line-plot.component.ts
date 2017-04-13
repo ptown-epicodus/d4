@@ -35,7 +35,7 @@ export class LinePlotComponent implements OnInit {
     this.width = w - margin.left - margin.right;
     this.height = h - margin.top - margin.bottom;
 
-    this.selection = this.d3.select('body')
+    this.selection = this.d3.select('#line-plot')
                             .append('svg')
                             .attr("width", this.width + margin.left + margin.right)
                             .attr("height", this.height + margin.top + margin.bottom)

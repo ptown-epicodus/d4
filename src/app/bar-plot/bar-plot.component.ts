@@ -186,13 +186,6 @@ textJoin
       })
       .attr("fill", "rgb(236, 225, 231)")
 
-
-
-
-
-
-
-
       let xAxis = this.d3.axisBottom(xScale)
       .ticks(5);
 
