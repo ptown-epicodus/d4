@@ -1,17 +1,34 @@
 <div class="container">
-  <button (click)="drawButtonClicked()" name="button">Draw</button>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="jumbotron">
+        <div class="center">
+          <h4>About This Section</h4>
+        </div>
+        <h5>Here, you can see line graph visualizations of Bob Ross' seasons throughout the ages. It allows you to see the frequency of various elements common to his paintings in each season.</h5>
+      </div>
+    </div>
+    <div class="jumbotron center">
+      <h4>Line Graph</h4>
+    </div>
+    <div class="col-sm-8" id="line-graph">
+      <!-- GRAPHS GO HERE -->
+    </div>
 
-  <div>
-    <div *ngFor="let feature of pictureFeatures; let idx = index">
-      <input type="checkbox"
-        (change)="toggleFeature(idx)"
-        [checked]="featuresShowing[idx]"
-        name="{{feature}}" value="{{feature}}">
-      <svg height="20" width="40">
-        <path d="M0 15 L40 15 Z" class="legend-line" id="{{'legend-' + feature}}" />
-      </svg>
-      {{feature}}
-      <br>
+    <button (click)="drawButtonClicked()" name="button">Draw</button>
+
+    <div>
+      <div *ngFor="let feature of pictureFeatures; let idx = index">
+        <input type="checkbox"
+          (change)="toggleFeature(idx)"
+          [checked]="featuresShowing[idx]"
+          name="{{feature}}" value="{{feature}}">
+        <svg height="20" width="40">
+          <path d="M0 15 L40 15 Z" class="legend-line" id="{{'legend-' + feature}}" />
+        </svg>
+        {{feature}}
+        <br>
+      </div>
     </div>
   </div>
 </div>

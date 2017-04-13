@@ -19,3 +19,11 @@
 #legend-bushes {
   stroke: green;
 }
+
+.center {
+  text-align: center;
+}
+
+.jumbotron h5 {
+  line-height: 1.5em;
+}
