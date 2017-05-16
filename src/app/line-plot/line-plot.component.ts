@@ -142,6 +142,7 @@ export class LinePlotComponent implements OnInit {
       lineData[i]['feature'] = PICTURE_FEATURES[i];
     }
     this.lineData = lineData;
+    console.log(lineData);
   }
 
   toggleFeature(index: number) {

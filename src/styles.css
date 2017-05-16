@@ -140,3 +140,16 @@
 .line-tooltip {
   font-size: 10pt;
 }
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.point {
+  fill: steelblue;
+  stroke: #000;
+}

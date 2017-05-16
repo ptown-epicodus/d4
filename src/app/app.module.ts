@@ -13,6 +13,7 @@ import { LinePlotComponent } from './line-plot/line-plot.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { TsvPracticeComponent } from './tsv-practice/tsv-practice.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './footer/footer.component';
     LinePlotComponent,
     HomeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    TsvPracticeComponent
   ],
   imports: [
     BrowserModule,
